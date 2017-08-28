@@ -12,6 +12,7 @@ import java.beans.PropertyVetoException;
 import java.beans.VetoableChangeListener;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -546,7 +547,7 @@ public class VOrdenCobro extends VOrdenPago {
 										.createParallelGroup(
 												org.jdesktop.layout.GroupLayout.LEADING)
 										.add(lblOrg).add(lblBPartnerDiscount)
-										.add(lblDocumentType))
+										.add(lblDocumentType).add(lblPaymentRule))
 								.addPreferredGap(
 										org.jdesktop.layout.LayoutStyle.RELATED)
 								.add(jPanel10Layout
@@ -557,6 +558,8 @@ public class VOrdenCobro extends VOrdenPago {
 												org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
 												234, Short.MAX_VALUE)
 										.add(cboDocumentType, 0, 234,
+												Short.MAX_VALUE)
+										.add(cboPaymentRule, 0, 234,
 												Short.MAX_VALUE))
 								.addContainerGap()));
 		jPanel10Layout
@@ -591,6 +594,16 @@ public class VOrdenCobro extends VOrdenPago {
 												org.jdesktop.layout.GroupLayout.BASELINE)
 										.add(lblDocumentType)
 										.add(cboDocumentType,
+												org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
+												org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
+												org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+								.addPreferredGap(
+										org.jdesktop.layout.LayoutStyle.RELATED)
+								.add(jPanel10Layout
+										.createParallelGroup(
+												org.jdesktop.layout.GroupLayout.BASELINE)
+										.add(lblPaymentRule)
+										.add(cboPaymentRule,
 												org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
 												org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
 												org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))));
@@ -2297,10 +2310,10 @@ public class VOrdenCobro extends VOrdenPago {
 		} catch (Exception e) {
 			throw new Exception("@Invalid@ @Amount@");
 		}
-		Timestamp retencionDate = retencFecha.getTimestamp();
 		// Se agrega la retención como medio de cobro.
+		// La fecha es la fecha de la RC
 		getCobroModel().addRetencion(retencionSchemaID, retencionNumber,
-				amount, retencionDate, getC_Campaign_ID(), getC_Project_ID());
+				amount, getModel().m_fechaTrx, getC_Campaign_ID(), getC_Project_ID());
 	}
 
 	protected void saveCreditCardMedioPago() throws Exception {
@@ -2631,7 +2644,7 @@ public class VOrdenCobro extends VOrdenPago {
 				paymentMedium != null ? paymentMedium.getC_Currency_ID() : Env
 						.getContextAsInt(m_ctx, "$C_Currency_ID"),
 				BigDecimal.ROUND_HALF_EVEN);
-		
+
 		txtPaymentToPayDiscount.setValue(paymentToPayAmt
 				.compareTo(BigDecimal.ZERO) > 0 ? (MCurrency.currencyConvert(
 				paymentToPayAmt, m_C_Currency_ID,
@@ -2772,6 +2785,12 @@ public class VOrdenCobro extends VOrdenPago {
 		// Actualizo el cargo de la organización para facturas vencidas
 		updateOverdueInvoicesCharge();
 		BigDecimal total = getModel().getSumaTotalPagarFacturas();
+		try {
+			txtTotalPagar1.setValue(numberParse(numberFormat(total)));
+		} catch (ParseException e) {			
+			e.printStackTrace();
+		}
+		//txtTotalPagar1.setValue(numberFormat(total));
 		txtTotalPagar1.setText(numberFormat(total));
 	}
 
@@ -3136,6 +3155,11 @@ public class VOrdenCobro extends VOrdenPago {
 	@Override
     protected CallResult validateDebitNote() {
 		return new CallResult();
+	}
+	
+	@Override
+	protected boolean isPrintRetentions(){
+		return false;
 	}
 
 }

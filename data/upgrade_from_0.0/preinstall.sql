@@ -13,7 +13,7 @@ ALTER TABLE C_Invoice ADD COLUMN ExchangeRate numeric(6,2);
 
 /*
  Realiza la conversion de moneda utilizando la cotizacion de la factura
- Si amount == null || amount == 0 => convierte el total de la factura
+ Si amount == null => convierte el total de la factura
  Si flag = true => convierte de moneda extranjera a  ARS
  Si flag = false => convierte de ARS a moneda extranjera 
 */
@@ -32,19 +32,24 @@ BEGIN
 	SELECT grandTotal, exchangeRate INTO total, exchange FROM c_invoice WHERE c_invoice_id = invoice_id; 
 	
 	IF NOT FOUND THEN
-       	RAISE NOTICE 'Invoice no encontrada - %', c_invoice;
+       	RAISE NOTICE 'Invoice no encontrada - %', invoice_id;
 		RETURN NULL;
+	END IF;
+	
+	-- Si la cantidad recibida como parametro es 0 = retorno 0, si es > 0 calculo con amount
+	-- Si es amount = null, uso el total de la factura
+	IF (amount IS NOT NULL) THEN
+		IF (amount = 0) THEN
+			RETURN 0;
+		END IF;
+		total := amount;
 	END IF;
 	
 	-- Si no hay tasa => tasa = 1;
 	IF (exchange IS NULL OR exchange = 0) THEN
 		exchange := 1;
 	END IF;
-	-- Si la cantidad recibida como parametro es > 0 => convierto la cantidad recibida como parametro
-	IF (amount IS NOT NULL AND amount > 0) THEN
-		total := amount;
-	END IF;
-	
+		
 	-- Convierto de moneda extranjera a ARS
 	IF (flag) THEN	
 		RETURN total * exchange;
@@ -56,6 +61,8 @@ END;
 
 $$ LANGUAGE plpgsql;
 
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
 /*
 Calcula la suma total de pagos/cobros realizados/recibidos de una factura
 Realiza el calculo traduciendo todos los valores a moneda ARS y 
@@ -99,6 +106,8 @@ END;
 
 $$ LANGUAGE plpgsql;
 
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
 
 /*
 Calcula el resto de una factura (total - cobros)
@@ -117,7 +126,7 @@ DECLARE
    	v_Min            	NUMERIC := 0.01; -- en Adempiere inferido desde Currency
    	s			RECORD;
 	
-	ars_currency_id integer;              
+	ars_currency_id integer;             
 	i_currency_id integer;
 	
 BEGIN
@@ -149,7 +158,7 @@ BEGIN
         	SELECT  ips.C_InvoicePaySchedule_ID, convertByInvoice(ips.DueAmt, p_c_invoice_id, true) as DueAmt
 	        FROM    C_InvoicePaySchedule ips
 	        INNER JOIN C_Invoice i on (ips.C_Invoice_ID = i.C_Invoice_ID)
-		WHERE	ips.C_Invoice_ID = p_C_Invoice_ID
+			WHERE	ips.C_Invoice_ID = p_C_Invoice_ID
 	        AND   ips.IsValid='Y'
         	ORDER BY ips.DueDate
         LOOP
@@ -187,5 +196,4 @@ BEGIN
 END;
 
 $$ LANGUAGE plpgsql;
-
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <changelog>
-<changegroup operation="I" tableName="AD_Element" uid="CGPC-AD_Element-1011631">
+<changegroup changelogGroupID="1204010" operation="I" tableName="AD_Element" uid="CGPC-AD_Element-1011631">
 <column name="AD_Client_ID" type="19">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
@@ -11,7 +11,7 @@
 </column>
 <column name="AD_ComponentVersion_ID" refTable="AD_ComponentVersion" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010085</newValue>
+<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010155</newValue>
 </column>
 <column name="AD_Element_ID" type="13">
 <oldValue>null</oldValue>
@@ -27,7 +27,7 @@
 </column>
 <column name="Created" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 10:55:29.87874</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="CreatedBy" type="18">
 <oldValue>null</oldValue>
@@ -51,14 +51,14 @@
 </column>
 <column name="Updated" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 10:55:29.879377</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="UpdatedBy" type="18">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
 </column>
 </changegroup>
-<changegroup operation="I" tableName="AD_Element_Trl" uid="CGPC-AD_Element_Trl-1011631-es_ES">
+<changegroup changelogGroupID="1204011" operation="I" tableName="AD_Element_Trl" uid="CGPC-AD_Element_Trl-1011631-es_ES">
 <column name="AD_Client_ID" type="19">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
@@ -69,11 +69,11 @@
 </column>
 <column name="AD_ComponentVersion_ID" refTable="AD_ComponentVersion" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010085</newValue>
+<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010155</newValue>
 </column>
 <column name="AD_Element_ID" refTable="AD_Element" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_Element-1011631">1011631</newValue>
+<newValue refUID="CGPC-AD_Element-1011631">1012312</newValue>
 </column>
 <column name="AD_Language" refTable="AD_Language" type="18">
 <oldValue>null</oldValue>
@@ -85,7 +85,7 @@
 </column>
 <column name="Created" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 10:55:30.25891</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="CreatedBy" type="18">
 <oldValue>null</oldValue>
@@ -109,14 +109,14 @@
 </column>
 <column name="Updated" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 10:55:30.2595</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="UpdatedBy" type="18">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
 </column>
 </changegroup>
-<changegroup operation="I" tableName="AD_Element_Trl" uid="CGPC-AD_Element_Trl-1011631-es_AR">
+<changegroup changelogGroupID="1204012" operation="I" tableName="AD_Element_Trl" uid="CGPC-AD_Element_Trl-1011631-es_AR">
 <column name="AD_Client_ID" type="19">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
@@ -127,11 +127,11 @@
 </column>
 <column name="AD_ComponentVersion_ID" refTable="AD_ComponentVersion" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010085</newValue>
+<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010155</newValue>
 </column>
 <column name="AD_Element_ID" refTable="AD_Element" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_Element-1011631">1011631</newValue>
+<newValue refUID="CGPC-AD_Element-1011631">1012312</newValue>
 </column>
 <column name="AD_Language" refTable="AD_Language" type="18">
 <oldValue>null</oldValue>
@@ -143,7 +143,7 @@
 </column>
 <column name="Created" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 10:55:30.392173</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="CreatedBy" type="18">
 <oldValue>null</oldValue>
@@ -167,14 +167,14 @@
 </column>
 <column name="Updated" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 10:55:30.392771</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="UpdatedBy" type="18">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
 </column>
 </changegroup>
-<changegroup operation="I" tableName="AD_Element_Trl" uid="CGPC-AD_Element_Trl-1011631-es_MX">
+<changegroup changelogGroupID="1204013" operation="I" tableName="AD_Element_Trl" uid="CGPC-AD_Element_Trl-1011631-es_MX">
 <column name="AD_Client_ID" type="19">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
@@ -185,11 +185,11 @@
 </column>
 <column name="AD_ComponentVersion_ID" refTable="AD_ComponentVersion" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010085</newValue>
+<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010155</newValue>
 </column>
 <column name="AD_Element_ID" refTable="AD_Element" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_Element-1011631">1011631</newValue>
+<newValue refUID="CGPC-AD_Element-1011631">1012312</newValue>
 </column>
 <column name="AD_Language" refTable="AD_Language" type="18">
 <oldValue>null</oldValue>
@@ -201,7 +201,7 @@
 </column>
 <column name="Created" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 10:55:30.496651</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="CreatedBy" type="18">
 <oldValue>null</oldValue>
@@ -225,14 +225,14 @@
 </column>
 <column name="Updated" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 10:55:30.497284</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="UpdatedBy" type="18">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
 </column>
 </changegroup>
-<changegroup operation="I" tableName="AD_Element_Trl" uid="CGPC-AD_Element_Trl-1011631-es_PY">
+<changegroup changelogGroupID="1204014" operation="I" tableName="AD_Element_Trl" uid="CGPC-AD_Element_Trl-1011631-es_PY">
 <column name="AD_Client_ID" type="19">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
@@ -243,11 +243,11 @@
 </column>
 <column name="AD_ComponentVersion_ID" refTable="AD_ComponentVersion" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010085</newValue>
+<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010155</newValue>
 </column>
 <column name="AD_Element_ID" refTable="AD_Element" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_Element-1011631">1011631</newValue>
+<newValue refUID="CGPC-AD_Element-1011631">1012312</newValue>
 </column>
 <column name="AD_Language" refTable="AD_Language" type="18">
 <oldValue>null</oldValue>
@@ -259,7 +259,7 @@
 </column>
 <column name="Created" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 10:55:30.584988</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="CreatedBy" type="18">
 <oldValue>null</oldValue>
@@ -283,14 +283,14 @@
 </column>
 <column name="Updated" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 10:55:30.585522</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="UpdatedBy" type="18">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
 </column>
 </changegroup>
-<changegroup operation="I" tableName="AD_Column" uid="CGPC-AD_Column-1016986">
+<changegroup changelogGroupID="1204015" operation="I" tableName="AD_Column" uid="CGPC-AD_Column-1016986">
 <column name="AD_Client_ID" type="19">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
@@ -305,11 +305,11 @@
 </column>
 <column name="AD_ComponentVersion_ID" refTable="AD_ComponentVersion" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010085</newValue>
+<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010155</newValue>
 </column>
 <column name="AD_Element_ID" refTable="AD_Element" type="30">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_Element-1011631">1011631</newValue>
+<newValue refUID="CGPC-AD_Element-1011631">1012312</newValue>
 </column>
 <column name="AD_Org_ID" type="19">
 <oldValue>null</oldValue>
@@ -329,7 +329,7 @@
 </column>
 <column name="Created" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 10:55:29.819622</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="CreatedBy" type="18">
 <oldValue>null</oldValue>
@@ -389,7 +389,7 @@
 </column>
 <column name="Updated" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 10:55:29.820357</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="UpdatedBy" type="18">
 <oldValue>null</oldValue>
@@ -400,14 +400,14 @@
 <newValue>0</newValue>
 </column>
 </changegroup>
-<changegroup operation="I" tableName="AD_Column_Trl" uid="CGPC-AD_Column_Trl-1016986-es_ES">
+<changegroup changelogGroupID="1204016" operation="I" tableName="AD_Column_Trl" uid="CGPC-AD_Column_Trl-1016986-es_ES">
 <column name="AD_Client_ID" type="19">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
 </column>
 <column name="AD_Column_ID" refTable="AD_Column" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_Column-1016986">1016986</newValue>
+<newValue refUID="CGPC-AD_Column-1016986">1018822</newValue>
 </column>
 <column name="AD_ComponentObjectUID" type="10">
 <oldValue>null</oldValue>
@@ -415,7 +415,7 @@
 </column>
 <column name="AD_ComponentVersion_ID" refTable="AD_ComponentVersion" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010085</newValue>
+<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010155</newValue>
 </column>
 <column name="AD_Language" refTable="AD_Language" type="18">
 <oldValue>null</oldValue>
@@ -427,7 +427,7 @@
 </column>
 <column name="Created" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 10:55:31.010087</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="CreatedBy" type="18">
 <oldValue>null</oldValue>
@@ -447,21 +447,21 @@
 </column>
 <column name="Updated" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 10:55:31.010584</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="UpdatedBy" type="18">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
 </column>
 </changegroup>
-<changegroup operation="I" tableName="AD_Column_Trl" uid="CGPC-AD_Column_Trl-1016986-es_AR">
+<changegroup changelogGroupID="1204017" operation="I" tableName="AD_Column_Trl" uid="CGPC-AD_Column_Trl-1016986-es_AR">
 <column name="AD_Client_ID" type="19">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
 </column>
 <column name="AD_Column_ID" refTable="AD_Column" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_Column-1016986">1016986</newValue>
+<newValue refUID="CGPC-AD_Column-1016986">1018822</newValue>
 </column>
 <column name="AD_ComponentObjectUID" type="10">
 <oldValue>null</oldValue>
@@ -469,7 +469,7 @@
 </column>
 <column name="AD_ComponentVersion_ID" refTable="AD_ComponentVersion" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010085</newValue>
+<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010155</newValue>
 </column>
 <column name="AD_Language" refTable="AD_Language" type="18">
 <oldValue>null</oldValue>
@@ -481,7 +481,7 @@
 </column>
 <column name="Created" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 10:55:31.156321</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="CreatedBy" type="18">
 <oldValue>null</oldValue>
@@ -501,21 +501,21 @@
 </column>
 <column name="Updated" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 10:55:31.157007</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="UpdatedBy" type="18">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
 </column>
 </changegroup>
-<changegroup operation="I" tableName="AD_Column_Trl" uid="CGPC-AD_Column_Trl-1016986-es_MX">
+<changegroup changelogGroupID="1204018" operation="I" tableName="AD_Column_Trl" uid="CGPC-AD_Column_Trl-1016986-es_MX">
 <column name="AD_Client_ID" type="19">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
 </column>
 <column name="AD_Column_ID" refTable="AD_Column" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_Column-1016986">1016986</newValue>
+<newValue refUID="CGPC-AD_Column-1016986">1018822</newValue>
 </column>
 <column name="AD_ComponentObjectUID" type="10">
 <oldValue>null</oldValue>
@@ -523,7 +523,7 @@
 </column>
 <column name="AD_ComponentVersion_ID" refTable="AD_ComponentVersion" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010085</newValue>
+<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010155</newValue>
 </column>
 <column name="AD_Language" refTable="AD_Language" type="18">
 <oldValue>null</oldValue>
@@ -535,7 +535,7 @@
 </column>
 <column name="Created" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 10:55:31.244989</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="CreatedBy" type="18">
 <oldValue>null</oldValue>
@@ -555,21 +555,21 @@
 </column>
 <column name="Updated" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 10:55:31.245774</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="UpdatedBy" type="18">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
 </column>
 </changegroup>
-<changegroup operation="I" tableName="AD_Column_Trl" uid="CGPC-AD_Column_Trl-1016986-es_PY">
+<changegroup changelogGroupID="1204019" operation="I" tableName="AD_Column_Trl" uid="CGPC-AD_Column_Trl-1016986-es_PY">
 <column name="AD_Client_ID" type="19">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
 </column>
 <column name="AD_Column_ID" refTable="AD_Column" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_Column-1016986">1016986</newValue>
+<newValue refUID="CGPC-AD_Column-1016986">1018822</newValue>
 </column>
 <column name="AD_ComponentObjectUID" type="10">
 <oldValue>null</oldValue>
@@ -577,7 +577,7 @@
 </column>
 <column name="AD_ComponentVersion_ID" refTable="AD_ComponentVersion" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010085</newValue>
+<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010155</newValue>
 </column>
 <column name="AD_Language" refTable="AD_Language" type="18">
 <oldValue>null</oldValue>
@@ -589,7 +589,7 @@
 </column>
 <column name="Created" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 10:55:31.324623</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="CreatedBy" type="18">
 <oldValue>null</oldValue>
@@ -609,14 +609,14 @@
 </column>
 <column name="Updated" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 10:55:31.325265</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="UpdatedBy" type="18">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Column" uid="CGPC-AD_Column-1016986">
+<changegroup changelogGroupID="1204020" operation="M" tableName="AD_Column" uid="CGPC-AD_Column-1016986">
 <column name="ColumnName" type="10">
 <oldValue>exchangerate</oldValue>
 <newValue>ExchangeRate</newValue>
@@ -626,7 +626,7 @@
 <newValue>ExchangeRate</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Element" uid="CGPC-AD_Element-1011631">
+<changegroup changelogGroupID="1204021" operation="M" tableName="AD_Element" uid="CGPC-AD_Element-1011631">
 <column name="ColumnName" type="10">
 <oldValue>exchangerate</oldValue>
 <newValue>ExchangeRate</newValue>
@@ -640,14 +640,14 @@
 <newValue>ExchangeRate</newValue>
 </column>
 </changegroup>
-<changegroup operation="I" tableName="AD_Field" uid="CGPC-AD_Field-1018011">
+<changegroup changelogGroupID="1204022" operation="I" tableName="AD_Field" uid="CGPC-AD_Field-1018011">
 <column name="AD_Client_ID" type="19">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
 </column>
 <column name="AD_Column_ID" refTable="AD_Column" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_Column-1016986">1016986</newValue>
+<newValue refUID="CGPC-AD_Column-1016986">1018822</newValue>
 </column>
 <column name="AD_ComponentObjectUID" type="10">
 <oldValue>null</oldValue>
@@ -655,7 +655,7 @@
 </column>
 <column name="AD_ComponentVersion_ID" refTable="AD_ComponentVersion" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010085</newValue>
+<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010155</newValue>
 </column>
 <column name="AD_Field_ID" type="13">
 <oldValue>null</oldValue>
@@ -671,7 +671,7 @@
 </column>
 <column name="Created" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 11:40:17.793487</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="CreatedBy" type="18">
 <oldValue>null</oldValue>
@@ -727,14 +727,14 @@
 </column>
 <column name="Updated" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 11:40:17.794057</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="UpdatedBy" type="18">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
 </column>
 </changegroup>
-<changegroup operation="I" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_ES">
+<changegroup changelogGroupID="1204023" operation="I" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_ES">
 <column name="AD_Client_ID" type="19">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
@@ -745,11 +745,11 @@
 </column>
 <column name="AD_ComponentVersion_ID" refTable="AD_ComponentVersion" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010085</newValue>
+<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010155</newValue>
 </column>
 <column name="AD_Field_ID" refTable="AD_Field" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_Field-1018011">1018011</newValue>
+<newValue refUID="CGPC-AD_Field-1018011">1019646</newValue>
 </column>
 <column name="AD_Language" refTable="AD_Language" type="18">
 <oldValue>null</oldValue>
@@ -761,7 +761,7 @@
 </column>
 <column name="Created" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 11:40:18.081393</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="CreatedBy" type="18">
 <oldValue>null</oldValue>
@@ -781,14 +781,14 @@
 </column>
 <column name="Updated" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 11:40:18.0823</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="UpdatedBy" type="18">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
 </column>
 </changegroup>
-<changegroup operation="I" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_AR">
+<changegroup changelogGroupID="1204024" operation="I" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_AR">
 <column name="AD_Client_ID" type="19">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
@@ -799,11 +799,11 @@
 </column>
 <column name="AD_ComponentVersion_ID" refTable="AD_ComponentVersion" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010085</newValue>
+<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010155</newValue>
 </column>
 <column name="AD_Field_ID" refTable="AD_Field" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_Field-1018011">1018011</newValue>
+<newValue refUID="CGPC-AD_Field-1018011">1019646</newValue>
 </column>
 <column name="AD_Language" refTable="AD_Language" type="18">
 <oldValue>null</oldValue>
@@ -815,7 +815,7 @@
 </column>
 <column name="Created" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 11:40:18.171255</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="CreatedBy" type="18">
 <oldValue>null</oldValue>
@@ -835,14 +835,14 @@
 </column>
 <column name="Updated" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 11:40:18.172148</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="UpdatedBy" type="18">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
 </column>
 </changegroup>
-<changegroup operation="I" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_MX">
+<changegroup changelogGroupID="1204025" operation="I" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_MX">
 <column name="AD_Client_ID" type="19">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
@@ -853,11 +853,11 @@
 </column>
 <column name="AD_ComponentVersion_ID" refTable="AD_ComponentVersion" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010085</newValue>
+<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010155</newValue>
 </column>
 <column name="AD_Field_ID" refTable="AD_Field" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_Field-1018011">1018011</newValue>
+<newValue refUID="CGPC-AD_Field-1018011">1019646</newValue>
 </column>
 <column name="AD_Language" refTable="AD_Language" type="18">
 <oldValue>null</oldValue>
@@ -869,7 +869,7 @@
 </column>
 <column name="Created" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 11:40:18.268911</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="CreatedBy" type="18">
 <oldValue>null</oldValue>
@@ -889,14 +889,14 @@
 </column>
 <column name="Updated" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 11:40:18.269568</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="UpdatedBy" type="18">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
 </column>
 </changegroup>
-<changegroup operation="I" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_PY">
+<changegroup changelogGroupID="1204026" operation="I" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_PY">
 <column name="AD_Client_ID" type="19">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
@@ -907,11 +907,11 @@
 </column>
 <column name="AD_ComponentVersion_ID" refTable="AD_ComponentVersion" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010085</newValue>
+<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010155</newValue>
 </column>
 <column name="AD_Field_ID" refTable="AD_Field" type="19">
 <oldValue>null</oldValue>
-<newValue refUID="CGPC-AD_Field-1018011">1018011</newValue>
+<newValue refUID="CGPC-AD_Field-1018011">1019646</newValue>
 </column>
 <column name="AD_Language" refTable="AD_Language" type="18">
 <oldValue>null</oldValue>
@@ -923,7 +923,7 @@
 </column>
 <column name="Created" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 11:40:18.366134</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="CreatedBy" type="18">
 <oldValue>null</oldValue>
@@ -943,14 +943,14 @@
 </column>
 <column name="Updated" type="16">
 <oldValue>null</oldValue>
-<newValue>2017-07-21 11:40:18.366933</newValue>
+<newValue>NOW()</newValue>
 </column>
 <column name="UpdatedBy" type="18">
 <oldValue>null</oldValue>
 <newValue>0</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_ES">
+<changegroup changelogGroupID="1204027" operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_ES">
 <column name="Description" type="10">
 <oldValue>null</oldValue>
 <newValue></newValue>
@@ -964,7 +964,7 @@
 <newValue>exchangerate</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_AR">
+<changegroup changelogGroupID="1204028" operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_AR">
 <column name="Description" type="10">
 <oldValue>null</oldValue>
 <newValue></newValue>
@@ -978,7 +978,7 @@
 <newValue>exchangerate</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_MX">
+<changegroup changelogGroupID="1204029" operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_MX">
 <column name="Description" type="10">
 <oldValue>null</oldValue>
 <newValue></newValue>
@@ -992,7 +992,7 @@
 <newValue>exchangerate</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_PY">
+<changegroup changelogGroupID="1204030" operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_PY">
 <column name="Description" type="10">
 <oldValue>null</oldValue>
 <newValue></newValue>
@@ -1006,223 +1006,217 @@
 <newValue>exchangerate</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CGPC-AD_Field-1018011">
+<changegroup changelogGroupID="1204031" operation="M" tableName="AD_Field" uid="CGPC-AD_Field-1018011">
 <column name="SeqNo" type="11">
 <oldValue>null</oldValue>
 <newValue>260</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-8648">
+<changegroup changelogGroupID="1204032" operation="M" tableName="AD_Field" uid="CORE-AD_Field-8648">
 <column name="SeqNo" type="11">
 <oldValue>260</oldValue>
 <newValue>270</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-2763">
+<changegroup changelogGroupID="1204033" operation="M" tableName="AD_Field" uid="CORE-AD_Field-2763">
 <column name="SeqNo" type="11">
 <oldValue>270</oldValue>
 <newValue>280</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-2953">
+<changegroup changelogGroupID="1204034" operation="M" tableName="AD_Field" uid="CORE-AD_Field-2953">
 <column name="SeqNo" type="11">
 <oldValue>280</oldValue>
 <newValue>290</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-2956">
+<changegroup changelogGroupID="1204035" operation="M" tableName="AD_Field" uid="CORE-AD_Field-2956">
 <column name="SeqNo" type="11">
 <oldValue>290</oldValue>
 <newValue>300</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-3112">
+<changegroup changelogGroupID="1204036" operation="M" tableName="AD_Field" uid="CORE-AD_Field-3112">
 <column name="SeqNo" type="11">
 <oldValue>300</oldValue>
 <newValue>310</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-2774">
+<changegroup changelogGroupID="1204037" operation="M" tableName="AD_Field" uid="CORE-AD_Field-2774">
 <column name="SeqNo" type="11">
 <oldValue>310</oldValue>
 <newValue>320</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-4244">
+<changegroup changelogGroupID="1204038" operation="M" tableName="AD_Field" uid="CORE-AD_Field-4244">
 <column name="SeqNo" type="11">
 <oldValue>320</oldValue>
 <newValue>330</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-2775">
+<changegroup changelogGroupID="1204039" operation="M" tableName="AD_Field" uid="CORE-AD_Field-2775">
 <column name="SeqNo" type="11">
 <oldValue>330</oldValue>
 <newValue>340</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-2764">
+<changegroup changelogGroupID="1204040" operation="M" tableName="AD_Field" uid="CORE-AD_Field-2764">
 <column name="SeqNo" type="11">
 <oldValue>340</oldValue>
 <newValue>350</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-2768">
+<changegroup changelogGroupID="1204041" operation="M" tableName="AD_Field" uid="CORE-AD_Field-2768">
 <column name="SeqNo" type="11">
 <oldValue>350</oldValue>
 <newValue>360</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-1015493">
+<changegroup changelogGroupID="1204042" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1015493">
 <column name="SeqNo" type="11">
 <oldValue>360</oldValue>
 <newValue>370</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-6935">
+<changegroup changelogGroupID="1204043" operation="M" tableName="AD_Field" uid="CORE-AD_Field-6935">
 <column name="SeqNo" type="11">
 <oldValue>370</oldValue>
 <newValue>380</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-1016664">
+<changegroup changelogGroupID="1204044" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1016664">
 <column name="SeqNo" type="11">
 <oldValue>380</oldValue>
 <newValue>390</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-7794">
+<changegroup changelogGroupID="1204045" operation="M" tableName="AD_Field" uid="CORE-AD_Field-7794">
 <column name="SeqNo" type="11">
 <oldValue>390</oldValue>
 <newValue>400</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-1017418">
+<changegroup changelogGroupID="1204046" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1017418">
 <column name="SeqNo" type="11">
 <oldValue>400</oldValue>
 <newValue>410</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-7795">
+<changegroup changelogGroupID="1204047" operation="M" tableName="AD_Field" uid="CORE-AD_Field-7795">
 <column name="SeqNo" type="11">
 <oldValue>410</oldValue>
 <newValue>420</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-2780">
+<changegroup changelogGroupID="1204048" operation="M" tableName="AD_Field" uid="CORE-AD_Field-2780">
 <column name="SeqNo" type="11">
 <oldValue>420</oldValue>
 <newValue>430</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-2778">
+<changegroup changelogGroupID="1204049" operation="M" tableName="AD_Field" uid="CORE-AD_Field-2778">
 <column name="SeqNo" type="11">
 <oldValue>430</oldValue>
 <newValue>440</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-2771">
+<changegroup changelogGroupID="1204050" operation="M" tableName="AD_Field" uid="CORE-AD_Field-2771">
 <column name="SeqNo" type="11">
 <oldValue>440</oldValue>
 <newValue>450</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-6564">
+<changegroup changelogGroupID="1204051" operation="M" tableName="AD_Field" uid="CORE-AD_Field-6564">
 <column name="SeqNo" type="11">
 <oldValue>450</oldValue>
 <newValue>460</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-2777">
+<changegroup changelogGroupID="1204052" operation="M" tableName="AD_Field" uid="CORE-AD_Field-2777">
 <column name="SeqNo" type="11">
 <oldValue>460</oldValue>
 <newValue>470</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-1016463">
+<changegroup changelogGroupID="1204053" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1016463">
 <column name="SeqNo" type="11">
 <oldValue>470</oldValue>
 <newValue>480</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-3663">
+<changegroup changelogGroupID="1204054" operation="M" tableName="AD_Field" uid="CORE-AD_Field-3663">
 <column name="SeqNo" type="11">
 <oldValue>480</oldValue>
 <newValue>490</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-1017501">
+<changegroup changelogGroupID="1204055" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1017501">
 <column name="SeqNo" type="11">
 <oldValue>490</oldValue>
 <newValue>500</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-3899">
+<changegroup changelogGroupID="1204056" operation="M" tableName="AD_Field" uid="CORE-AD_Field-3899">
 <column name="SeqNo" type="11">
 <oldValue>500</oldValue>
 <newValue>510</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-1003722">
+<changegroup changelogGroupID="1204057" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1003722">
 <column name="SeqNo" type="11">
 <oldValue>510</oldValue>
 <newValue>520</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-1003723">
+<changegroup changelogGroupID="1204058" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1003723">
 <column name="SeqNo" type="11">
 <oldValue>520</oldValue>
 <newValue>530</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-1014249">
+<changegroup changelogGroupID="1204059" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1014249">
 <column name="SeqNo" type="11">
 <oldValue>530</oldValue>
 <newValue>540</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-1014251">
+<changegroup changelogGroupID="1204060" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1014251">
 <column name="SeqNo" type="11">
 <oldValue>540</oldValue>
 <newValue>550</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-1014252">
+<changegroup changelogGroupID="1204061" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1014252">
 <column name="SeqNo" type="11">
 <oldValue>550</oldValue>
 <newValue>560</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-1014250">
+<changegroup changelogGroupID="1204062" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1014250">
 <column name="SeqNo" type="11">
 <oldValue>560</oldValue>
 <newValue>570</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-1014253">
+<changegroup changelogGroupID="1204063" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1014253">
 <column name="SeqNo" type="11">
 <oldValue>570</oldValue>
 <newValue>580</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-1017631">
+<changegroup changelogGroupID="1204064" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1017631">
 <column name="SeqNo" type="11">
 <oldValue>580</oldValue>
 <newValue>590</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-1017926">
+<changegroup changelogGroupID="1204065" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1017926">
 <column name="SeqNo" type="11">
 <oldValue>590</oldValue>
 <newValue>600</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="">
-<column name="SeqNo" type="11">
-<oldValue>600</oldValue>
-<newValue>610</newValue>
-</column>
-</changegroup>
-<changegroup operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_ES">
+<changegroup changelogGroupID="1204066" operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_ES">
 <column name="Description" type="10">
 <oldValue></oldValue>
 <newValue>Cotización</newValue>
@@ -1232,7 +1226,7 @@
 <newValue>Cotización</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_AR">
+<changegroup changelogGroupID="1204067" operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_AR">
 <column name="Description" type="10">
 <oldValue></oldValue>
 <newValue>Cotización</newValue>
@@ -1242,7 +1236,7 @@
 <newValue>Cotización</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_MX">
+<changegroup changelogGroupID="1204068" operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_MX">
 <column name="Description" type="10">
 <oldValue></oldValue>
 <newValue>Cotización</newValue>
@@ -1252,7 +1246,7 @@
 <newValue>Cotización</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_PY">
+<changegroup changelogGroupID="1204069" operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1018011-es_PY">
 <column name="Description" type="10">
 <oldValue></oldValue>
 <newValue>Cotización</newValue>
@@ -1262,46 +1256,656 @@
 <newValue>Cotización</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CGPC-AD_Field-1018011">
+<changegroup changelogGroupID="1204070" operation="M" tableName="AD_Field" uid="CGPC-AD_Field-1018011">
 <column name="IsSameLine" type="20">
 <oldValue>N</oldValue>
 <newValue>Y</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CORE-AD_Field-8648">
+<changegroup changelogGroupID="1204071" operation="M" tableName="AD_Field" uid="CORE-AD_Field-8648">
 <column name="SeqNo" type="11">
 <oldValue>270</oldValue>
 <newValue>260</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CGPC-AD_Field-1018011">
+<changegroup changelogGroupID="1204072" operation="M" tableName="AD_Field" uid="CGPC-AD_Field-1018011">
 <column name="SeqNo" type="11">
 <oldValue>260</oldValue>
 <newValue>270</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CGPC-AD_Field-1018011">
+<changegroup changelogGroupID="1204073" operation="M" tableName="AD_Field" uid="CGPC-AD_Field-1018011">
 <column name="DisplayLogic" type="14">
 <oldValue>null</oldValue>
 <newValue>@c_Currency_id</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CGPC-AD_Field-1018011">
+<changegroup changelogGroupID="1204074" operation="M" tableName="AD_Field" uid="CGPC-AD_Field-1018011">
 <column name="DisplayLogic" type="14">
 <oldValue>@c_Currency_id</oldValue>
 <newValue>@C_Currency_ID != 'ARS'</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CGPC-AD_Field-1018011">
+<changegroup changelogGroupID="1204075" operation="M" tableName="AD_Field" uid="CGPC-AD_Field-1018011">
 <column name="DisplayLogic" type="14">
 <oldValue>@C_Currency_ID != 'ARS'</oldValue>
 <newValue>@C_Currency_ID != 118</newValue>
 </column>
 </changegroup>
-<changegroup operation="M" tableName="AD_Field" uid="CGPC-AD_Field-1018011">
+<changegroup changelogGroupID="1204076" operation="M" tableName="AD_Field" uid="CGPC-AD_Field-1018011">
 <column name="DisplayLogic" type="14">
 <oldValue>@C_Currency_ID != 118</oldValue>
 <newValue>@C_Currency_ID@!@$C_Currency_ID@</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204078" operation="I" tableName="AD_Field" uid="CGPC-AD_Field-1019648">
+<column name="AD_Client_ID" type="19">
+<oldValue>null</oldValue>
+<newValue>0</newValue>
+</column>
+<column name="AD_Column_ID" refTable="AD_Column" type="19">
+<oldValue>null</oldValue>
+<newValue refUID="CGPC-AD_Column-1016986">1018822</newValue>
+</column>
+<column name="AD_ComponentObjectUID" type="10">
+<oldValue>null</oldValue>
+<newValue>CGPC-AD_Field-1019648</newValue>
+</column>
+<column name="AD_ComponentVersion_ID" refTable="AD_ComponentVersion" type="19">
+<oldValue>null</oldValue>
+<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010155</newValue>
+</column>
+<column name="AD_Field_ID" type="13">
+<oldValue>null</oldValue>
+<newValue>1019648</newValue>
+</column>
+<column name="AD_Org_ID" type="19">
+<oldValue>null</oldValue>
+<newValue>0</newValue>
+</column>
+<column name="AD_Tab_ID" refTable="AD_Tab" type="19">
+<oldValue>null</oldValue>
+<newValue refUID="CORE-AD_Tab-290">290</newValue>
+</column>
+<column name="Created" type="16">
+<oldValue>null</oldValue>
+<newValue>2017-08-22 10:30:10.299995</newValue>
+</column>
+<column name="CreatedBy" type="18">
+<oldValue>null</oldValue>
+<newValue>0</newValue>
+</column>
+<column name="DisplayLength" type="11">
+<oldValue>null</oldValue>
+<newValue>0</newValue>
+</column>
+<column name="EntityType" type="17">
+<oldValue>null</oldValue>
+<newValue>U</newValue>
+</column>
+<column name="ExportRealValue" type="20">
+<oldValue>null</oldValue>
+<newValue>N</newValue>
+</column>
+<column name="IsActive" type="20">
+<oldValue>null</oldValue>
+<newValue>Y</newValue>
+</column>
+<column name="IsCentrallyMaintained" type="20">
+<oldValue>null</oldValue>
+<newValue>Y</newValue>
+</column>
+<column name="IsDisplayed" type="20">
+<oldValue>null</oldValue>
+<newValue>Y</newValue>
+</column>
+<column name="isdisplayedingrid" type="20">
+<oldValue>null</oldValue>
+<newValue>Y</newValue>
+</column>
+<column name="IsEncrypted" type="20">
+<oldValue>null</oldValue>
+<newValue>N</newValue>
+</column>
+<column name="IsFieldOnly" type="20">
+<oldValue>null</oldValue>
+<newValue>N</newValue>
+</column>
+<column name="IsHeading" type="20">
+<oldValue>null</oldValue>
+<newValue>N</newValue>
+</column>
+<column name="IsReadOnly" type="20">
+<oldValue>null</oldValue>
+<newValue>N</newValue>
+</column>
+<column name="IsSameLine" type="20">
+<oldValue>null</oldValue>
+<newValue>N</newValue>
+</column>
+<column name="Name" type="10">
+<oldValue>null</oldValue>
+<newValue>ExchangeRate</newValue>
+</column>
+<column name="SeqNo" type="11">
+<oldValue>null</oldValue>
+<newValue>570</newValue>
+</column>
+<column name="SortNo" type="22">
+<oldValue>null</oldValue>
+<newValue>0</newValue>
+</column>
+<column name="Updated" type="16">
+<oldValue>null</oldValue>
+<newValue>2017-08-22 10:30:10.300402</newValue>
+</column>
+<column name="UpdatedBy" type="18">
+<oldValue>null</oldValue>
+<newValue>0</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204079" operation="I" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1019648-es_ES">
+<column name="AD_Client_ID" type="19">
+<oldValue>null</oldValue>
+<newValue>0</newValue>
+</column>
+<column name="AD_ComponentObjectUID" type="10">
+<oldValue>null</oldValue>
+<newValue>CGPC-AD_Field_Trl-1019648-es_ES</newValue>
+</column>
+<column name="AD_ComponentVersion_ID" refTable="AD_ComponentVersion" type="19">
+<oldValue>null</oldValue>
+<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010155</newValue>
+</column>
+<column name="AD_Field_ID" refTable="AD_Field" type="19">
+<oldValue>null</oldValue>
+<newValue refUID="CGPC-AD_Field-1019648">1019648</newValue>
+</column>
+<column name="AD_Language" refTable="AD_Language" type="18">
+<oldValue>null</oldValue>
+<newValue refUID="CORE-AD_Language-es_ES-140">es_ES</newValue>
+</column>
+<column name="AD_Org_ID" type="19">
+<oldValue>null</oldValue>
+<newValue>0</newValue>
+</column>
+<column name="Created" type="16">
+<oldValue>null</oldValue>
+<newValue>2017-08-22 10:30:10.926608</newValue>
+</column>
+<column name="CreatedBy" type="18">
+<oldValue>null</oldValue>
+<newValue>0</newValue>
+</column>
+<column name="IsActive" type="20">
+<oldValue>null</oldValue>
+<newValue>Y</newValue>
+</column>
+<column name="IsTranslated" type="20">
+<oldValue>null</oldValue>
+<newValue>N</newValue>
+</column>
+<column name="Name" type="10">
+<oldValue>null</oldValue>
+<newValue>ExchangeRate</newValue>
+</column>
+<column name="Updated" type="16">
+<oldValue>null</oldValue>
+<newValue>2017-08-22 10:30:10.926932</newValue>
+</column>
+<column name="UpdatedBy" type="18">
+<oldValue>null</oldValue>
+<newValue>0</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204080" operation="I" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1019648-es_AR">
+<column name="AD_Client_ID" type="19">
+<oldValue>null</oldValue>
+<newValue>0</newValue>
+</column>
+<column name="AD_ComponentObjectUID" type="10">
+<oldValue>null</oldValue>
+<newValue>CGPC-AD_Field_Trl-1019648-es_AR</newValue>
+</column>
+<column name="AD_ComponentVersion_ID" refTable="AD_ComponentVersion" type="19">
+<oldValue>null</oldValue>
+<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010155</newValue>
+</column>
+<column name="AD_Field_ID" refTable="AD_Field" type="19">
+<oldValue>null</oldValue>
+<newValue refUID="CGPC-AD_Field-1019648">1019648</newValue>
+</column>
+<column name="AD_Language" refTable="AD_Language" type="18">
+<oldValue>null</oldValue>
+<newValue refUID="CORE-AD_Language-es_AR-133">es_AR</newValue>
+</column>
+<column name="AD_Org_ID" type="19">
+<oldValue>null</oldValue>
+<newValue>0</newValue>
+</column>
+<column name="Created" type="16">
+<oldValue>null</oldValue>
+<newValue>2017-08-22 10:30:11.222992</newValue>
+</column>
+<column name="CreatedBy" type="18">
+<oldValue>null</oldValue>
+<newValue>0</newValue>
+</column>
+<column name="IsActive" type="20">
+<oldValue>null</oldValue>
+<newValue>Y</newValue>
+</column>
+<column name="IsTranslated" type="20">
+<oldValue>null</oldValue>
+<newValue>N</newValue>
+</column>
+<column name="Name" type="10">
+<oldValue>null</oldValue>
+<newValue>ExchangeRate</newValue>
+</column>
+<column name="Updated" type="16">
+<oldValue>null</oldValue>
+<newValue>2017-08-22 10:30:11.223522</newValue>
+</column>
+<column name="UpdatedBy" type="18">
+<oldValue>null</oldValue>
+<newValue>0</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204081" operation="I" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1019648-es_MX">
+<column name="AD_Client_ID" type="19">
+<oldValue>null</oldValue>
+<newValue>0</newValue>
+</column>
+<column name="AD_ComponentObjectUID" type="10">
+<oldValue>null</oldValue>
+<newValue>CGPC-AD_Field_Trl-1019648-es_MX</newValue>
+</column>
+<column name="AD_ComponentVersion_ID" refTable="AD_ComponentVersion" type="19">
+<oldValue>null</oldValue>
+<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010155</newValue>
+</column>
+<column name="AD_Field_ID" refTable="AD_Field" type="19">
+<oldValue>null</oldValue>
+<newValue refUID="CGPC-AD_Field-1019648">1019648</newValue>
+</column>
+<column name="AD_Language" refTable="AD_Language" type="18">
+<oldValue>null</oldValue>
+<newValue refUID="CORE-AD_Language-es_MX-143">es_MX</newValue>
+</column>
+<column name="AD_Org_ID" type="19">
+<oldValue>null</oldValue>
+<newValue>0</newValue>
+</column>
+<column name="Created" type="16">
+<oldValue>null</oldValue>
+<newValue>2017-08-22 10:30:11.578984</newValue>
+</column>
+<column name="CreatedBy" type="18">
+<oldValue>null</oldValue>
+<newValue>0</newValue>
+</column>
+<column name="IsActive" type="20">
+<oldValue>null</oldValue>
+<newValue>Y</newValue>
+</column>
+<column name="IsTranslated" type="20">
+<oldValue>null</oldValue>
+<newValue>N</newValue>
+</column>
+<column name="Name" type="10">
+<oldValue>null</oldValue>
+<newValue>ExchangeRate</newValue>
+</column>
+<column name="Updated" type="16">
+<oldValue>null</oldValue>
+<newValue>2017-08-22 10:30:11.579564</newValue>
+</column>
+<column name="UpdatedBy" type="18">
+<oldValue>null</oldValue>
+<newValue>0</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204082" operation="I" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1019648-es_PY">
+<column name="AD_Client_ID" type="19">
+<oldValue>null</oldValue>
+<newValue>0</newValue>
+</column>
+<column name="AD_ComponentObjectUID" type="10">
+<oldValue>null</oldValue>
+<newValue>CGPC-AD_Field_Trl-1019648-es_PY</newValue>
+</column>
+<column name="AD_ComponentVersion_ID" refTable="AD_ComponentVersion" type="19">
+<oldValue>null</oldValue>
+<newValue refUID="CGPC-AD_ComponentVersion-1010085">1010155</newValue>
+</column>
+<column name="AD_Field_ID" refTable="AD_Field" type="19">
+<oldValue>null</oldValue>
+<newValue refUID="CGPC-AD_Field-1019648">1019648</newValue>
+</column>
+<column name="AD_Language" refTable="AD_Language" type="18">
+<oldValue>null</oldValue>
+<newValue refUID="CORE-AD_Language-es_PY-148">es_PY</newValue>
+</column>
+<column name="AD_Org_ID" type="19">
+<oldValue>null</oldValue>
+<newValue>0</newValue>
+</column>
+<column name="Created" type="16">
+<oldValue>null</oldValue>
+<newValue>2017-08-22 10:30:11.845018</newValue>
+</column>
+<column name="CreatedBy" type="18">
+<oldValue>null</oldValue>
+<newValue>0</newValue>
+</column>
+<column name="IsActive" type="20">
+<oldValue>null</oldValue>
+<newValue>Y</newValue>
+</column>
+<column name="IsTranslated" type="20">
+<oldValue>null</oldValue>
+<newValue>N</newValue>
+</column>
+<column name="Name" type="10">
+<oldValue>null</oldValue>
+<newValue>ExchangeRate</newValue>
+</column>
+<column name="Updated" type="16">
+<oldValue>null</oldValue>
+<newValue>2017-08-22 10:30:11.845566</newValue>
+</column>
+<column name="UpdatedBy" type="18">
+<oldValue>null</oldValue>
+<newValue>0</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204083" operation="M" tableName="AD_Field" uid="CGPC-AD_Field-1019648">
+<column name="IsSameLine" type="20">
+<oldValue>N</oldValue>
+<newValue>Y</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204160" operation="M" tableName="AD_Field" uid="CGPC-AD_Field-1019648">
+<column name="SeqNo" type="11">
+<oldValue>570</oldValue>
+<newValue>250</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204161" operation="M" tableName="AD_Field" uid="CORE-AD_Field-8649">
+<column name="SeqNo" type="11">
+<oldValue>250</oldValue>
+<newValue>260</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204162" operation="M" tableName="AD_Field" uid="CORE-AD_Field-3322">
+<column name="SeqNo" type="11">
+<oldValue>260</oldValue>
+<newValue>270</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204163" operation="M" tableName="AD_Field" uid="CORE-AD_Field-3355">
+<column name="SeqNo" type="11">
+<oldValue>270</oldValue>
+<newValue>280</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204164" operation="M" tableName="AD_Field" uid="CORE-AD_Field-3354">
+<column name="SeqNo" type="11">
+<oldValue>280</oldValue>
+<newValue>290</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204165" operation="M" tableName="AD_Field" uid="CORE-AD_Field-3346">
+<column name="SeqNo" type="11">
+<oldValue>290</oldValue>
+<newValue>300</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204166" operation="M" tableName="AD_Field" uid="CORE-AD_Field-3353">
+<column name="SeqNo" type="11">
+<oldValue>300</oldValue>
+<newValue>310</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204167" operation="M" tableName="AD_Field" uid="CORE-AD_Field-3331">
+<column name="SeqNo" type="11">
+<oldValue>310</oldValue>
+<newValue>320</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204168" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1015498">
+<column name="SeqNo" type="11">
+<oldValue>320</oldValue>
+<newValue>330</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204169" operation="M" tableName="AD_Field" uid="CORE-AD_Field-4246">
+<column name="SeqNo" type="11">
+<oldValue>330</oldValue>
+<newValue>340</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204170" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1017757">
+<column name="SeqNo" type="11">
+<oldValue>340</oldValue>
+<newValue>350</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204171" operation="M" tableName="AD_Field" uid="CORE-AD_Field-3332">
+<column name="SeqNo" type="11">
+<oldValue>350</oldValue>
+<newValue>360</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204172" operation="M" tableName="AD_Field" uid="CORE-AD_Field-3323">
+<column name="SeqNo" type="11">
+<oldValue>360</oldValue>
+<newValue>370</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204173" operation="M" tableName="AD_Field" uid="CORE-AD_Field-3327">
+<column name="SeqNo" type="11">
+<oldValue>370</oldValue>
+<newValue>380</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204174" operation="M" tableName="AD_Field" uid="CORE-AD_Field-6936">
+<column name="SeqNo" type="11">
+<oldValue>380</oldValue>
+<newValue>390</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204175" operation="M" tableName="AD_Field" uid="CORE-AD_Field-7796">
+<column name="SeqNo" type="11">
+<oldValue>390</oldValue>
+<newValue>400</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204176" operation="M" tableName="AD_Field" uid="CORE-AD_Field-7797">
+<column name="SeqNo" type="11">
+<oldValue>400</oldValue>
+<newValue>410</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204177" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1016468">
+<column name="SeqNo" type="11">
+<oldValue>410</oldValue>
+<newValue>420</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204178" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1017732">
+<column name="SeqNo" type="11">
+<oldValue>420</oldValue>
+<newValue>430</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204179" operation="M" tableName="AD_Field" uid="CORE-AD_Field-3337">
+<column name="SeqNo" type="11">
+<oldValue>430</oldValue>
+<newValue>440</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204180" operation="M" tableName="AD_Field" uid="CORE-AD_Field-3335">
+<column name="SeqNo" type="11">
+<oldValue>440</oldValue>
+<newValue>450</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204181" operation="M" tableName="AD_Field" uid="CORE-AD_Field-3329">
+<column name="SeqNo" type="11">
+<oldValue>450</oldValue>
+<newValue>460</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204182" operation="M" tableName="AD_Field" uid="CORE-AD_Field-6532">
+<column name="SeqNo" type="11">
+<oldValue>460</oldValue>
+<newValue>470</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204183" operation="M" tableName="AD_Field" uid="CORE-AD_Field-3334">
+<column name="SeqNo" type="11">
+<oldValue>470</oldValue>
+<newValue>480</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204184" operation="M" tableName="AD_Field" uid="CORE-AD_Field-3670">
+<column name="SeqNo" type="11">
+<oldValue>480</oldValue>
+<newValue>490</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204185" operation="M" tableName="AD_Field" uid="CORE-AD_Field-3900">
+<column name="SeqNo" type="11">
+<oldValue>490</oldValue>
+<newValue>500</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204186" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1001328">
+<column name="SeqNo" type="11">
+<oldValue>500</oldValue>
+<newValue>510</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204187" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1003710">
+<column name="SeqNo" type="11">
+<oldValue>510</oldValue>
+<newValue>520</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204188" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1003711">
+<column name="SeqNo" type="11">
+<oldValue>520</oldValue>
+<newValue>530</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204189" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1017957">
+<column name="SeqNo" type="11">
+<oldValue>530</oldValue>
+<newValue>540</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204190" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1017956">
+<column name="SeqNo" type="11">
+<oldValue>540</oldValue>
+<newValue>550</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204191" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1019450">
+<column name="SeqNo" type="11">
+<oldValue>550</oldValue>
+<newValue>560</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204192" operation="M" tableName="AD_Field" uid="CORE-AD_Field-1018326">
+<column name="SeqNo" type="11">
+<oldValue>560</oldValue>
+<newValue>570</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204411" operation="M" tableName="AD_Field" uid="CGPC-AD_Field-1019648">
+<column name="DisplayLogic" type="14">
+<oldValue>null</oldValue>
+<newValue>@C_Currency_ID@!@$C_Currency_ID@</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204489" operation="M" tableName="AD_Field" uid="CORE-AD_Field-8649">
+<column name="SeqNo" type="11">
+<oldValue>260</oldValue>
+<newValue>250</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204490" operation="M" tableName="AD_Field" uid="CGPC-AD_Field-1019648">
+<column name="SeqNo" type="11">
+<oldValue>250</oldValue>
+<newValue>260</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204523" operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1019648-es_ES">
+<column name="Description" type="10">
+<oldValue>null</oldValue>
+<newValue>Cotización</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204525" operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1019648-es_MX">
+<column name="Description" type="10">
+<oldValue>null</oldValue>
+<newValue>Cotización</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204526" operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1019648-es_PY">
+<column name="Description" type="10">
+<oldValue>null</oldValue>
+<newValue>Cotización</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204527" operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1019648-es_ES">
+<column name="IsTranslated" type="20">
+<oldValue>N</oldValue>
+<newValue>Y</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204528" operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1019648-es_AR">
+<column name="IsTranslated" type="20">
+<oldValue>N</oldValue>
+<newValue>Y</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204529" operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1019648-es_MX">
+<column name="IsTranslated" type="20">
+<oldValue>N</oldValue>
+<newValue>Y</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204530" operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1019648-es_PY">
+<column name="IsTranslated" type="20">
+<oldValue>N</oldValue>
+<newValue>Y</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204532" operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1019648-es_ES">
+<column name="Name" type="10">
+<oldValue>ExchangeRate</oldValue>
+<newValue>Cotización</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204533" operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1019648-es_AR">
+<column name="Name" type="10">
+<oldValue>ExchangeRate</oldValue>
+<newValue>Cotización</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204534" operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1019648-es_MX">
+<column name="Name" type="10">
+<oldValue>ExchangeRate</oldValue>
+<newValue>Cotización</newValue>
+</column>
+</changegroup>
+<changegroup changelogGroupID="1204535" operation="M" tableName="AD_Field_Trl" uid="CGPC-AD_Field_Trl-1019648-es_PY">
+<column name="Name" type="10">
+<oldValue>ExchangeRate</oldValue>
+<newValue>Cotización</newValue>
 </column>
 </changegroup>
 </changelog>

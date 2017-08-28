@@ -8,7 +8,6 @@ import java.util.Properties;
 import java.util.logging.Level;
 
 import org.openXpertya.model.MConversionRate;
-import org.openXpertya.model.MConversionType;
 import org.openXpertya.model.MCurrency;
 import org.openXpertya.model.MPriceList;
 import org.openXpertya.model.PO;
@@ -28,7 +27,6 @@ public class MInvoice extends MPluginPO {
 
 	public MInvoice(PO po, Properties ctx, String trxName, String aPackage) {
 		super(po, ctx, trxName, aPackage);
-		// TODO Auto-generated constructor stub
 	}
 	
 	/**
@@ -102,6 +100,7 @@ public class MInvoice extends MPluginPO {
 		LP_C_Invoice invoice = (LP_C_Invoice)po;
 		this.transaction = invoice.get_TrxName();
 		this.invoiceContext = invoice.getCtx();
+		
 		/* Si la moneda de la factura es diferente a a del precio de lista
 		 * y no hay una tasa de conversion entre esas monedas
 		 * entonces creo la conversion
@@ -109,10 +108,10 @@ public class MInvoice extends MPluginPO {
 		int priceListCurrency = new MPriceList(invoice.getCtx(), invoice.getM_PriceList_ID(),null).getC_Currency_ID();
 		if(priceListCurrency != invoice.getC_Currency_ID()) {
 			if(MCurrency.currencyConvert(new BigDecimal(1), priceListCurrency,
-					invoice.getC_Currency_ID(), invoice.getDateInvoiced(), invoice.getAD_Org_ID(),
+					invoice.getC_Currency_ID(), invoice.getDateInvoiced(), 0,
 					invoice.getCtx()) == null) {
 				MConversionRate newcr = new MConversionRate(invoice.getCtx(), 0, invoice.get_TrxName());
-				newcr.setAD_Org_ID(invoice.getAD_Org_ID());
+				newcr.setAD_Org_ID(0);
 				newcr.setC_Currency_ID(priceListCurrency);
 				newcr.setC_Currency_ID_To(invoice.getC_Currency_ID());
 				newcr.setValidFrom(TimeUtil.getDay(2000, 1, 1)); //desde el 2000
@@ -121,22 +120,44 @@ public class MInvoice extends MPluginPO {
 				newcr.setMultiplyRate(new BigDecimal(1F/newcr.getDivideRate().floatValue()));
 				newcr.setC_ConversionType_ID(114);//ID=114 -> conversion Directa
 				newcr.save();
-			}/* else{
-				/* Si la moneda ya existia, solo la actualizo 
-				MConversionRate toUpdate = this.getConversionRate(priceListCurrency, invoice.getC_Currency_ID(), null, invoice.getAD_Client_ID(), invoice.getAD_Org_ID());
-				toUpdate.setDivideRate(invoice.getExchangeRate());
-				toUpdate.setMultiplyRate(new BigDecimal(1F/toUpdate.getDivideRate().floatValue()));
-				toUpdate.save();
-			}*/
+			}
+			
+		}
+		
+		/* 
+		 * Cuando se carga una factura de proveedor en una tarifa con moneda extranjera
+		 * Creo una tasa de conversion si es que no existe, para evitar errores en los
+		 * diferentes chequeos 
+		 */
+		int ars_currency_id = 0;
+		try {
+    		StringBuffer sql = new StringBuffer("SELECT C_Currency_ID FROM c_currency WHERE iso_code = 'ARS'");   
+    		PreparedStatement pstmt = DB.prepareStatement(sql.toString());    	
+    		ResultSet rs = pstmt.executeQuery();
+    		if (rs.next())
+    			ars_currency_id = rs.getBigDecimal(1).intValue();
+    	}
+    	catch (Exception e ) {
+    		e.printStackTrace();
+    	}
+		if(priceListCurrency != ars_currency_id) {			
+			if(MCurrency.currencyConvert(new BigDecimal(1), priceListCurrency,
+					ars_currency_id, invoice.getDateInvoiced(), 0,
+					invoice.getCtx()) == null) {
+				MConversionRate newcr = new MConversionRate(invoice.getCtx(), 0, invoice.get_TrxName());
+				newcr.setAD_Org_ID(0);
+				newcr.setC_Currency_ID(priceListCurrency);
+				newcr.setC_Currency_ID_To(ars_currency_id);
+				newcr.setValidFrom(TimeUtil.getDay(2000, 1, 1)); //desde el 2000
+				newcr.setValidTo(TimeUtil.getDay(2040, 12, 30)); //hasta el 2040
+				newcr.setMultiplyRate(invoice.getExchangeRate());
+				newcr.setDivideRate(new BigDecimal(1F/newcr.getDivideRate().floatValue()));
+				newcr.setC_ConversionType_ID(114);//ID=114 -> conversion Directa
+				newcr.save();
+			}
 		}
 
 		return super.preBeforeSave(po, newRecord);
-	}
-	
-	@Override
-	public MPluginStatusPO postBeforeSave(PO po, boolean newRecord) {
-		// TODO Auto-generated method stub
-		return super.postBeforeSave(po, newRecord);
 	}
 	
 }

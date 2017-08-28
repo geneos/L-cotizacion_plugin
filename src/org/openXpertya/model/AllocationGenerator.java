@@ -12,11 +12,14 @@ import java.util.List;
 import java.util.Properties;
 
 import org.openXpertya.process.DocAction;
+import org.openXpertya.reflection.CallResult;
 import org.openXpertya.util.CLogger;
 import org.openXpertya.util.DB;
 import org.openXpertya.util.Env;
 import org.openXpertya.util.Msg;
 import org.openXpertya.util.Util;
+
+import ar.com.cotizacion.plugin.model.InvoiceCurrencyConverter;
 
 /**
  * Generador de Asignación. Esta clase es un Wrapper & Helper para la creación de 
@@ -56,9 +59,16 @@ public class AllocationGenerator {
 	private List<Document> debits;
 	/** Lista de créditos de la Asignación */
 	private List<Document> credits;
-
 	/** Encabezado de la Asignación */
 	private MAllocationHdr allocationHdr;
+	/** Tipo de documento del allocation */
+	private MDocType docType;
+	/** Secuencia del allocation */
+	private MSequence docTypeSeq;
+	/** Número de Documento */
+	private String documentNo;
+	/** Bloqueo actual */
+	private MSequenceLock currentSeqLock;
 	
 	/** Locale AR activo? */
 	public final boolean LOCALE_AR_ACTIVE = CalloutInvoiceExt.ComprobantesFiscalesActivos();
@@ -213,6 +223,7 @@ public class AllocationGenerator {
 	 * Crea un nuevo encabezado de asignación seteando la mayoría de sus atributos por defecto
 	 * a partir de los valores del contexto.
 	 * @param allocationType tipo de asignación del encabezado <code>X_C_AllocationHdr.ALLOCATIONTYPE_XXX</code>
+	 * @param orgID ID de la organización del allocation
 	 * @throws IllegalStateException si el generador fue instanciado mediante el constructor
 	 * que permite asociar un MAllocationHdr existente.
 	 * @throws AllocationGeneratorException cuando se produce un error al guardar el nuevo
@@ -220,7 +231,7 @@ public class AllocationGenerator {
 	 * @return el <code>MAllocationHdr</code> recientemente creado. (Accesible también
 	 * invocando el método {@link #getAllocationHdr()}.
 	 */
-	public MAllocationHdr createAllocationHdr(String allocationType) throws AllocationGeneratorException {
+	public MAllocationHdr createAllocationHdr(String allocationType, Integer orgID) throws AllocationGeneratorException {
 		MAllocationHdr newAllocationHdr = null;
 		// No se permite crear un nuevo encabezado si ya fue asignado uno mediante el
 		// constructor que permite asociar un Hdr a este generador.
@@ -232,14 +243,38 @@ public class AllocationGenerator {
 		Timestamp systemDate = Env.getContextAsDate(getCtx(), "#Date");         // Fecha actual
 		// Se asignan los valores por defecto requeridos al encabezado
 		newAllocationHdr = new MAllocationHdr(getCtx(), 0, getTrxName());
+		newAllocationHdr.setAD_Org_ID(orgID);
 		newAllocationHdr.setAllocationType(allocationType);
 		newAllocationHdr.setC_Currency_ID(clientCurrencyID);
 		newAllocationHdr.setDateAcct(systemDate);
 		newAllocationHdr.setDateTrx(systemDate);
+		if(getDocType() != null){
+			newAllocationHdr.setC_DocType_ID(getDocType().getID());
+			try{
+				newAllocationHdr.setDocumentNo(getDocumentNo());
+			} catch(Exception e){
+				throw new AllocationGeneratorException(e.getMessage());
+			}
+		}
 		// Se guarda el nuevo encabezado.
 		saveAllocationHdr(newAllocationHdr);
 		setAllocationHdr(newAllocationHdr);
 		return newAllocationHdr;
+	}
+	
+	/**
+	 * Crea un nuevo encabezado de asignación seteando la mayoría de sus atributos por defecto
+	 * a partir de los valores del contexto.
+	 * @param allocationType tipo de asignación del encabezado <code>X_C_AllocationHdr.ALLOCATIONTYPE_XXX</code>
+	 * @throws IllegalStateException si el generador fue instanciado mediante el constructor
+	 * que permite asociar un MAllocationHdr existente.
+	 * @throws AllocationGeneratorException cuando se produce un error al guardar el nuevo
+	 * encabezado de asignación.
+	 * @return el <code>MAllocationHdr</code> recientemente creado. (Accesible también
+	 * invocando el método {@link #getAllocationHdr()}.
+	 */
+	public MAllocationHdr createAllocationHdr(String allocationType) throws AllocationGeneratorException {
+		return createAllocationHdr(allocationType, Env.getAD_Org_ID(getCtx()));
 	}
 	
 	/**
@@ -329,7 +364,7 @@ public class AllocationGenerator {
 	 * @throws AllocationGeneratorException 
 	 */
 	public BigDecimal getDebitsAmount() throws AllocationGeneratorException {
-		return getDocumentsAmountFromDebits();
+		return getDocumentsAmount(getDebits());
 	}
 
 	/**
@@ -422,6 +457,11 @@ public class AllocationGenerator {
 		// No se permiten montos de imputación iguales a cero.
 		if (document.amount.compareTo(BigDecimal.ZERO) == 0)
 			throw new IllegalArgumentException("Allocation amount must be greather than zero");
+		// Validaciones custom
+		CallResult result = customValidationsAddDocument(document); 
+		if(result.isError()){
+			throw new IllegalArgumentException(result.getMsg());
+		}
 		// Se busca si el documento existe en la lista.
 		if (list.contains(document)) {
 			// En ese caso se incrementa el monto a impuatar del documento existente.
@@ -467,11 +507,9 @@ public class AllocationGenerator {
 			// Comparación exacta (sin redondeos)
 			// TODO: Ver si sería posible la tolerancia de algunos centavos de diferencia en
 			// esta comparación.
-			BigDecimal debitsAmount = getDebitsAmount();
-			BigDecimal creditsAmount = getCreditsAmount();
-			if (debitsAmount.compareTo(creditsAmount) != 0) {
-				if (Math.abs((creditsAmount.subtract(creditsAmount)).doubleValue()) > (Double.parseDouble(MPreference.GetCustomPreferenceValue("AllowExchangeDifference"))) )
-					throw new AllocationGeneratorException(getMsg("CreditDebitAmountsMatchError"));
+			if (getDebitsAmount().compareTo(getCreditsAmount() ) != 0) {
+				if ( Math.abs(  (getDebitsAmount().subtract(getCreditsAmount())).doubleValue() ) >  (Double.parseDouble(MPreference.GetCustomPreferenceValue("AllowExchangeDifference"))) )
+				throw new AllocationGeneratorException(getMsg("CreditDebitAmountsMatchError"));
 			}
 		}
 		
@@ -528,23 +566,6 @@ public class AllocationGenerator {
 	 * @return BigDecimal total imputación de la lista
 	 * @throws AllocationGeneratorException 
 	 */
-	private BigDecimal getDocumentsAmountFromDebits() throws AllocationGeneratorException{
-		List<Document> documents = getDebits();
-		BigDecimal totalAmount = BigDecimal.ZERO;
-		for (Document document : documents) {
-			if (document.getConvertedAmountFromInvoice() == null)
-					throw new AllocationGeneratorException(getMsg("NoConversionRate") + ": " + (new MCurrency(getCtx(),document.getCurrencyId(),getTrxName())).getISO_Code() + " - " + (new MCurrency(getCtx(),Env.getContextAsInt( getCtx(), "$C_Currency_ID" ),getTrxName())).getISO_Code());
-			totalAmount = totalAmount.add(document.getConvertedAmountFromInvoice());
-		}
-		return totalAmount;
-	}
-	
-	/**
-	 * Calcula la suma de los montos de imputación de una lista de documentos
-	 * @param documents Lista de documentos involucrados en el cálculo (Débitos o Créditos)
-	 * @return BigDecimal total imputación de la lista
-	 * @throws AllocationGeneratorException 
-	 */
 	private BigDecimal getDocumentsExchangeDifferenceAmount(List<Document> documents) throws AllocationGeneratorException{
 		BigDecimal totalAmount = BigDecimal.ZERO;
 		for (Document document : documents) {
@@ -585,9 +606,9 @@ public class AllocationGenerator {
 			// Se recorren todos los débitos para ser imputados con los créditos.
 			// Se puede dar el caso que el monto de imputación de un débito
 			// requiera mas de un crédito para ser satisfacido.
-			if (debitDocument.getConvertedAmountFromInvoice() == null)
+			if (debitDocument.getConvertedAmount() == null)
 				throw new AllocationGeneratorException(getMsg("NoConversionRate") + ": " + (new MCurrency(getCtx(),debitDocument.getCurrencyId(),getTrxName())).getISO_Code() + " - " + (new MCurrency(getCtx(),Env.getContextAsInt( getCtx(), "$C_Currency_ID" ),getTrxName())).getISO_Code());
-			BigDecimal debitAmount = debitDocument.getConvertedAmountFromInvoice();   // Monto a cubrir del débito
+			BigDecimal debitAmount = debitDocument.getConvertedAmount();   // Monto a cubrir del débito
 			
 			BigDecimal creditAmountSum;
 			if	(creditSurplus != null){                 // Inicializar lo que se cubre 
@@ -863,7 +884,15 @@ public class AllocationGenerator {
 	 * @return Devuelve un mensaje traducido.
 	 */
 	protected String getMsg(String name) {
-		return Msg.translate(Env.getCtx(), name);
+		return Msg.translate(getCtx(), name);
+	}
+	
+	/**
+	 * @param params parámetros del mesaje
+	 * @return Devuelve un mensaje traducido.
+	 */
+	protected String getMsg(String adMessage, Object[] params) {
+		return Msg.getMsg(getCtx(), adMessage, params);
 	}
 	
 	/**
@@ -899,6 +928,7 @@ public class AllocationGenerator {
 		public Timestamp date;
 		public Integer orgID;
 		private BigDecimal amountAllocated = BigDecimal.ZERO;
+		private boolean isAuthorized = true; 
 		
 		/**
 		 * @param id ID del documento
@@ -954,13 +984,7 @@ public class AllocationGenerator {
 		}
 		
 		public BigDecimal getConvertedAmount(){
-			BigDecimal result = MCurrency.currencyConvert(this.amount, this.currencyId, Env.getContextAsInt( getCtx(), "$C_Currency_ID"), getSqlDate(), Env.getAD_Org_ID(getCtx()), getCtx());
-			return result;		
-		}
-		
-		public BigDecimal getConvertedAmountFromInvoice(){
-			BigDecimal result = MCurrency.currencyConvertByInvoice(this.amount, this.id, true);
-			return result;
+			return MCurrency.currencyConvert(this.amount, this.currencyId, Env.getContextAsInt( getCtx(), "$C_Currency_ID" ), getSqlDate(), Env.getAD_Org_ID(getCtx()), getCtx());
 		}
 		
 		public abstract Date getSqlDate();
@@ -1006,6 +1030,14 @@ public class AllocationGenerator {
 		public BigDecimal getAvailableAmt(){
 			return getAmount().subtract(getAmountAllocated());
 		}
+
+		public boolean isAuthorized() {
+			return isAuthorized;
+		}
+
+		public void setAuthorized(boolean isAuthorized) {
+			this.isAuthorized = isAuthorized;
+		}
 	}
 	
 	/**
@@ -1021,6 +1053,7 @@ public class AllocationGenerator {
 			super(id, AllocationDocumentType.INVOICE, amount);
 			this.currencyId = getSqlCurrencyId();
 			this.date = getSqlDate();
+			setAuthorized(getSqlAuthorized());
 		}
 		
 		/**
@@ -1038,6 +1071,12 @@ public class AllocationGenerator {
 			return DB.getSQLValueTimestamp(getTrxName(), "SELECT DateAcct FROM C_Invoice WHERE C_Invoice_ID = "+ id);
 		}
 
+		public boolean getSqlAuthorized(){
+			return DB.getSQLValue(getTrxName(),
+					"SELECT c_invoice_id FROM C_Invoice WHERE C_Invoice_ID = ? AND (authorizationchainstatus is null OR authorizationchainstatus = 'A')",
+					id) > 0;
+		}
+		
 		@Override
 		public void setAsCreditIn(MAllocationLine allocationLine) {
 			allocationLine.setC_Invoice_Credit_ID(id);			
@@ -1062,7 +1101,21 @@ public class AllocationGenerator {
 		}
 		
 		public boolean validateAmount() {
-			return ( (DB.getSQLValueBD(getTrxName(), "SELECT invoiceopen(?,0)", id, true)).subtract(amount.setScale(2, RoundingMode.HALF_EVEN)).compareTo(BigDecimal.ZERO) >= 0 );
+			//OLD LINE return ( (DB.getSQLValueBD(getTrxName(), "SELECT invoiceopen(?,0)", id, true)).subtract(amount.setScale(2, RoundingMode.HALF_EVEN)).compareTo(BigDecimal.ZERO) >= 0 );
+			
+			/* DEBUG CODE GENEOS
+			BigDecimal v2 = amount.setScale(2, RoundingMode.HALF_EVEN);
+			boolean r = (DB.getSQLValueBD(getTrxName(), "SELECT calculateInvoiceOpenAmount(?,0)", id, true)).subtract(amount.setScale(2, RoundingMode.HALF_EVEN)).compareTo(BigDecimal.ZERO) >= 0;
+			System.out.println(v1+" - "+v2+" = "+v1.subtract(v2)+" -> Resultado= "+r); */
+			return ((DB.getSQLValueBD(getTrxName(), "SELECT calculateInvoiceOpenAmount(?,0)", id, true)).subtract(amount.setScale(2, RoundingMode.HALF_EVEN)).compareTo(BigDecimal.ZERO) >= 0);
+		}
+		
+		/**
+		 * Realiza la conversion de moneda utilizando la cotizacion de la factura 
+		 **/
+		public BigDecimal getConvertedAmount(){
+			BigDecimal result = InvoiceCurrencyConverter.currencyConvertByInvoice(this.amount, this.id, true);
+			return result;
 		}
 	}
 
@@ -1343,8 +1396,20 @@ public class AllocationGenerator {
 		invoiceLine.setC_Tax_ID(tax.getID());
 		invoiceLine.setLineNetAmt();
 		invoiceLine.setC_Project_ID(invoice.getC_Project_ID());
-		// Setear el artículo
-		String valueProduct = MPreference.GetCustomPreferenceValue("DIF_CAMBIO_ARTICULO");
+		
+		//SUR SOFTWARE -> Primero intento obtener de AD_Preference el tipo de artículo para diff de cambio crédito o débito diferenciado
+		String valueProduct = null;
+		if (isCredit)
+			valueProduct = MPreference.GetCustomPreferenceValue("DIF_CAMBIO_ARTICULO_CRED");
+		else
+			valueProduct = MPreference.GetCustomPreferenceValue("DIF_CAMBIO_ARTICULO_DEB");
+		
+		
+		//SUR SOFTWARE -> Si no están las preferencias diferenciadas para artículos, obtengo el artículo tal como se hacía anteriormente (por default)
+		if(Util.isEmpty(valueProduct,true)){
+			// Setear el artículo
+			valueProduct = MPreference.GetCustomPreferenceValue("DIF_CAMBIO_ARTICULO");
+		}
 
 		if(Util.isEmpty(valueProduct,true)){
 			throw new Exception(
@@ -1590,6 +1655,81 @@ public class AllocationGenerator {
 		return invoice;
 	}
 	
+	protected CallResult customValidationsAddDocument(Document document){
+		return new CallResult();
+	}
+
+	public MDocType getDocType() {
+		return docType;
+	}
+
+	public void setDocType(MDocType docType) {
+		this.docType = docType;
+		MSequence seq = null;
+		if(docType != null && !Util.isEmpty(docType.getDocNoSequence_ID(), true)){
+			seq = new MSequence(getCtx(), docType.getDocNoSequence_ID(), getTrxName());
+		}
+		setDocTypeSeq(seq);
+	}
+
+	public MSequence getDocTypeSeq() {
+		return docTypeSeq;
+	}
+
+	public void setDocTypeSeq(MSequence docTypeSeq) {
+		this.docTypeSeq = docTypeSeq;
+	}
+	
+	public void setDocType(Integer docTypeID){
+		setDocType(Util.isEmpty(docTypeID, true) ? null : MDocType.get(getCtx(), docTypeID));
+	}
+	
+	public String getDocumentNo() throws Exception{
+		String documentNo = this.documentNo;
+		
+		if(getDocType() != null){
+			if (getDocTypeSeq() == null && !Util.isEmpty(getDocType().getDocNoSequence_ID(), true)) {
+				setDocTypeSeq(new MSequence(getCtx(), getDocType().getDocNoSequence_ID(), getTrxName()));
+			}
+			if(getDocTypeSeq() != null && Util.isEmpty(this.documentNo, true)){
+				// Realizar las validaciones de la secuencia
+				validateSeq();
+
+				// Obtener el siguiente número de secuencia
+				documentNo = !Util.isEmpty(this.documentNo, true) ? this.documentNo
+						: MSequence.getDocumentNo(getDocType().getID(), null);
+			}
+		}
+		
+		setDocumentNo(documentNo);
+		
+		return documentNo;
+	}	
+
+	public void validateSeq() throws Exception{
+		// No debe existir un bloqueo en la secuencia
+		if (getDocType() != null && getDocType().isLockSeq() && getDocTypeSeq() != null) {
+			MSequenceLock seqLock = MSequence.getCurrentLock(getCtx(), getDocType().getID(),
+					(getCurrentSeqLock() != null ? getCurrentSeqLock().getID() : 0), getTrxName());
+			if(seqLock != null){
+				setDocumentNo(null);
+				throw new Exception(getMsg("SequenceLocked", new Object[] { seqLock.getDescription() }));
+			}
+		}
+	}
+	
+	public void setDocumentNo(String documentNo) {
+		this.documentNo = documentNo;
+	}
+
+	public MSequenceLock getCurrentSeqLock() {
+		return currentSeqLock;
+	}
+
+	public void setCurrentSeqLock(MSequenceLock currentSeqLock) {
+		this.currentSeqLock = currentSeqLock;
+	}
+
 	public class PaymentMediumInfo{
 		private BigDecimal amount;
 		private Integer currencyId;
