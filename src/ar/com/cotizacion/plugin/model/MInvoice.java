@@ -9,15 +9,20 @@ import java.util.logging.Level;
 
 import org.openXpertya.model.MConversionRate;
 import org.openXpertya.model.MCurrency;
+import org.openXpertya.model.MInvoiceLine;
 import org.openXpertya.model.MPriceList;
+import org.openXpertya.model.MProductPrice;
 import org.openXpertya.model.PO;
+import org.openXpertya.plugin.MPluginDocAction;
 import org.openXpertya.plugin.MPluginPO;
+import org.openXpertya.plugin.MPluginStatusDocAction;
 import org.openXpertya.plugin.MPluginStatusPO;
+import org.openXpertya.process.DocAction;
 import org.openXpertya.util.CLogger;
 import org.openXpertya.util.DB;
 import org.openXpertya.util.TimeUtil;
 
-public class MInvoice extends MPluginPO {
+public class MInvoice extends MPluginDocAction {
 	
 	/** Logger */
     private static CLogger	s_log	= CLogger.getCLogger(MInvoice.class);
@@ -158,6 +163,35 @@ public class MInvoice extends MPluginPO {
 		}
 
 		return super.preBeforeSave(po, newRecord);
+	}
+	
+	public MPluginStatusDocAction postCompleteIt(DocAction document) {
+		LP_C_Invoice invoice = (LP_C_Invoice)document;
+		
+		MPriceList pl = new MPriceList(invoice.getCtx(), invoice.getM_PriceList_ID(), invoice.get_TrxName());
+		if (pl.isActualizarPreciosConFacturaDeCompra()) {
+			//Actualizo los precios de productos a partir del precio de la factura
+			MInvoiceLine[] l = invoice.getLines();
+			for (int i = 0; i < l.length; i++) {
+				int plv_id = DB.getSQLValue(invoice.get_TrxName(),
+								"SELECT M_PriceList_Version_ID FROM M_PriceList_Version WHERE M_PriceList_ID = "
+										+ pl.getM_PriceList_ID());
+				MProductPrice pp;
+				if (plv_id != 0) {
+					//Si existe MProductoPrice la instancio, sino creo una nueva
+					pp = MProductPrice.get(invoice.getCtx(), plv_id, l[i].getM_Product_ID(), invoice.get_TrxName());
+					if (pp == null) {
+						pp = new MProductPrice(invoice.getCtx(), 0, invoice.get_TrxName());
+						pp.setM_PriceList_Version_ID(plv_id);
+						pp.setM_Product_ID(l[i].getM_Product_ID());
+					}
+					pp.setPriceList(l[i].getPriceActual());
+					pp.setPriceStd(l[i].getPriceActual());
+					pp.save();
+				}
+			}
+		}
+		return status_docAction;
 	}
 	
 }
